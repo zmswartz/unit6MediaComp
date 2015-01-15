@@ -153,6 +153,37 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void cropAndCopy(Picture fromPic,
+  int startRow, int endRow, int startCol, int endCol, int startDestRow, int startDestCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = startRow, toRow = startDestRow;
+        fromRow <= endRow &&
+        toRow < toPixels.length;
+        fromRow++, toRow++)
+    {
+        for (int fromCol = startCol, toCol = startDestCol;
+            fromCol <= endCol &&
+            toCol < toPixels[0].length;
+            fromCol++, toCol++)
+        {
+            fromPixel = fromPixels[fromRow][fromCol];
+            toPixel = toPixels[toRow][toCol];
+            toPixel.setColor(fromPixel.getColor());
+        }
+    }
+  }
+  
+  public void scaleByHalf(Picture fromPic)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */

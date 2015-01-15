@@ -48,6 +48,15 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testCropAndCopy()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    Picture beach = new Picture("beach.jpg");
+    caterpillar.cropAndCopy(beach, 20, 100, 0 , 100 , 5, 0);
+    beach.explore();
+    caterpillar.explore();
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -143,7 +152,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-    testFixUnderwater();
+    //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
@@ -154,7 +163,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+    testCropAndCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
