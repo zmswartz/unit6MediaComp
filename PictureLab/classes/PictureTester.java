@@ -139,6 +139,14 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testPictureLab()
+  {
+      Picture canvas= new Picture(800,800);
+      Picture swan = new Picture("swan.jpg");
+      canvas.copy(swan, 0,0);
+      canvas.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -163,7 +171,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    testCropAndCopy();
+    //testCropAndCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -172,5 +180,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+    testPictureLab();
   }
 }
