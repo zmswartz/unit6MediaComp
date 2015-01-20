@@ -128,6 +128,7 @@ public class PictureTester
   {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
+    canvas.collage();
     canvas.explore();
   }
   
@@ -141,9 +142,9 @@ public class PictureTester
   
   public static void testPictureLab()
   {
-      Picture canvas= new Picture(800,800);
+      Picture canvas= new Picture(619,899);
       Picture swan = new Picture("swan.jpg");
-      canvas.copy(swan, 0,0);
+      canvas.collage();
       canvas.explore();
   }
   

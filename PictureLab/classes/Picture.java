@@ -71,6 +71,8 @@ public class Picture extends SimplePicture
   
   ////////////////////// methods ///////////////////////////////////////
   
+  
+  
   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
@@ -83,6 +85,24 @@ public class Picture extends SimplePicture
       + " width " + getWidth();
     return output;
     
+  }
+  
+  public void collage()
+  {
+      Picture mj = new Picture("mj.jpg");
+      this.copy(mj,0,0);
+      Picture mj2 = new Picture("mj.jpg");
+      mj2.zeroBlue();
+      mj2.mirrorHorizontal();
+      this.copy(mj2,0,450);
+      Picture mj3 = new Picture("mj.jpg");
+      mj3.grayscale();
+      mj3.mirrorVerticalRightToLeft();
+      this.copy(mj3,310,0);
+      Picture mj4 = new Picture("mj.jpg");
+      mj4.negate();
+      mj4.mirrorDiagonalInverse();
+      this.copy(mj4,310,450);
   }
   
   /** Method to set the blue to 0 */
@@ -278,6 +298,34 @@ public class Picture extends SimplePicture
       {
         topPixel = pixels[row][col];
         bottomPixel = pixels[col][row];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    } 
+  }
+  
+  public void mirrorDiagonalInverse()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int width = pixels[0].length;
+    int height = pixels.length;
+    int min; 
+    if(width > height)
+    {
+        min = height;
+    }
+    else
+    {
+        min = width;
+    }
+    
+    for (int row = 0; row < min; row++)
+    {
+      for (int col = 0; col < row; col++)
+      {
+        topPixel = pixels[col][row];
+        bottomPixel = pixels[row][col];
         bottomPixel.setColor(topPixel.getColor());
       }
     } 
