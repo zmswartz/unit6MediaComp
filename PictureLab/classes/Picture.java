@@ -11,7 +11,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * SimplePicture and allows the student to add functionality to
  * the Picture class.  
  * 
- * @author Barbara Ericson ericson@cc.gatech.edu
+ * @author zmswartz
  */
 public class Picture extends SimplePicture 
 {
@@ -87,21 +87,30 @@ public class Picture extends SimplePicture
     
   }
   
-  public void collage()
+  // This is the method to create the Collage Lab
+  /** Method to create a collage of severval versions of one picture */
+  public void pictureLab()
   {
+      //Creates and copies the first unedited version into the canvas
       Picture mj = new Picture("mj.jpg");
       this.copy(mj,0,0);
+      //Creates and copies the second version which is mirrored horizontally 
+      //and all blue values are zeroed
       Picture mj2 = new Picture("mj.jpg");
       mj2.zeroBlue();
       mj2.mirrorHorizontal();
       this.copy(mj2,0,450);
+      //Creates and copies the third version which is mirrored vertically from right to left
+      //and is grayscaled
       Picture mj3 = new Picture("mj.jpg");
       mj3.grayscale();
       mj3.mirrorVerticalRightToLeft();
       this.copy(mj3,310,0);
+      //Creates and copies the forth version which is mirrored diagonally opposite
+      //and the colors are negated
       Picture mj4 = new Picture("mj.jpg");
       mj4.negate();
-      mj4.mirrorDiagonalInverse();
+      mj4.mirrorDiagonalOpposite();
       this.copy(mj4,310,450);
   }
   
@@ -143,7 +152,7 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  /** Sets the RGB colors to 255 minus its current color **/
   public void negate()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -157,7 +166,7 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  /** Averages the values of the RGB colors and sets them to the average **/
   public void grayscale()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -224,6 +233,9 @@ public class Picture extends SimplePicture
     } 
   }
   
+  /** Method that mirrors the picture around a 
+    * horizontal mirror in the center of the picture
+    * from right to left */
   public void mirrorVerticalRightToLeft()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -241,6 +253,9 @@ public class Picture extends SimplePicture
     } 
   }
   
+  /** Method that mirrors the picture around a 
+    * horizontal mirror in the center of the picture
+    * from left to right */
    public void mirrorHorizontal()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -275,6 +290,9 @@ public class Picture extends SimplePicture
     } 
   }
   
+  /** Method that mirrors the picture around a 
+    * diagonal line mirror starting from the top left corner. Mirrors
+    * from left to right */
    public void mirrorDiagonal()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -303,8 +321,14 @@ public class Picture extends SimplePicture
     } 
   }
   
-  public void mirrorDiagonalInverse()
+  
+  /** Method that mirrors the picture around a 
+    * diagonal line mirror starting from the top left corner. Mirrors
+    * from right to left */
+  public void mirrorDiagonalOpposite()
   {
+    // Has the same mirror line as mirrorDiagonal 
+    // except mirrors right to left.
     Pixel[][] pixels = this.getPixels2D();
     Pixel topPixel = null;
     Pixel bottomPixel = null;
@@ -448,7 +472,8 @@ public class Picture extends SimplePicture
       }
     }   
   }
-
+  // This is not the Collage Lab
+  // The method to create the Collage Lab
   /** Method to create a collage of several pictures */
   public void createCollage()
   {

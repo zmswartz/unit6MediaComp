@@ -4,7 +4,7 @@
  * methods.  Uncomment the methods and the code
  * in the main to test.
  * 
- * @author Barbara Ericson 
+ * @author zmswartz
  */
 public class PictureTester
 {
@@ -123,12 +123,13 @@ public class PictureTester
     temple.explore();
   }
   
+  // testCollage is not the method I used for this lab
+  // Use testPictureLab instead
   /** Method to test the collage method */
   public static void testCollage()
   {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
-    canvas.collage();
     canvas.explore();
   }
   
@@ -140,12 +141,14 @@ public class PictureTester
     swan.explore();
   }
   
+  // This is the one for the Picture Lab
+  /** Method to run and test pictureLab **/
   public static void testPictureLab()
   {
       Picture canvas= new Picture(619,899);
-      Picture swan = new Picture("swan.jpg");
-      canvas.collage();
+      canvas.pictureLab();
       canvas.explore();
+      canvas.write("\\\\NNHSSRV2\\ZMSwartz$\\GitHub\\unit6MediaComp\\PictureLab\\Final Collage.jpg");
   }
   
   /** Main method for testing.  Every class can have a main
