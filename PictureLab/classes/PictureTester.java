@@ -148,7 +148,7 @@ public class PictureTester
       Picture canvas= new Picture(619,899);
       canvas.pictureLab();
       canvas.explore();
-      canvas.write("\\\\NNHSSRV2\\ZMSwartz$\\GitHub\\unit6MediaComp\\PictureLab\\Final Collage.jpg");
+      canvas.write("Final Collage.jpg");
   }
   
   /** Main method for testing.  Every class can have a main
